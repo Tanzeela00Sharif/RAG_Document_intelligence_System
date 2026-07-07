@@ -46,7 +46,36 @@ st.markdown("""
         -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     section[data-testid="stSidebar"] { background-color: #111827; }
-    section[data-testid="stSidebar"] * { color: #F9FAFB !important; }
+
+    /* Labels, captions, headings on the dark sidebar background -> light text */
+    section[data-testid="stSidebar"] label,
+    section[data-testid="stSidebar"] .stMarkdown,
+    section[data-testid="stSidebar"] .stCaption,
+    section[data-testid="stSidebar"] h1,
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3,
+    section[data-testid="stSidebar"] p {
+        color: #F9FAFB !important;
+    }
+
+    /* Actual input/select/textarea boxes have white backgrounds -> keep text dark */
+    section[data-testid="stSidebar"] input,
+    section[data-testid="stSidebar"] textarea,
+    section[data-testid="stSidebar"] [data-baseweb="select"] * ,
+    section[data-testid="stSidebar"] [data-baseweb="input"] * {
+        color: #111827 !important;
+    }
+
+    /* Password dot input keeps the same dark text as it's typed/masked */
+    section[data-testid="stSidebar"] input[type="password"] {
+        color: #111827 !important;
+        background-color: #ffffff !important;
+    }
+
+    /* Dropdown menu options (the list that appears on click) */
+    div[data-baseweb="popover"] li {
+        color: #111827 !important;
+    }
     .stExpander { border-radius: 10px; border: 1px solid #e5e7eb; }
     .doc-pill {
         display: inline-block; background: #EEF2FF; color: #4338CA;
